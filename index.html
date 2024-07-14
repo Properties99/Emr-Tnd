@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Emaar Trending</title>
+    <link rel="stylesheet" href="property-styles.css">
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const projectSelect = document.getElementById('project');
+            const detailsDiv = document.getElementById('details');
+            
+            const projectDetails = {
+                'Mivida': `<ul>
+                    <li>Boulvard Insta. Till 27 - Parcel 25</li>
+                    <li>Avenues Residence Insta. Till 27 - Parcel 10</li>
+                    <li>Blue views Insta. Till 28</li>
+                    <li>Crescent Insta. Till 26 - Parcel 27</li>
+                </ul>`,
+                'MSA': `<ul>
+                    <li>Marina views - Waters Till 27</li>
+                    <li>Marina views - Marine Till 29</li>
+                    <li>Marina views - Cyan Till 29</li>
+                    <li>Riva Views Till 29</li>
+                    <li>Blanca 3Bds 191 M2 /EG25-28</li>
+                    <li>2 Bds 141 M2 /EG21 Max Was (16M -2023 Summer) With Garden</li>
+                    <li>Riva Salerno 14M</li>
+                    <li>Siena Sea Side 60M</li>
+                    <li>DV Skaia 10M</li>
+                    <li>Greek</li>
+                </ul>`,
+                'BV': 'Beach Res. Inst. Till 28',
+                'Soul': `<ul>
+                    <li>Infinity Inst. Till Nov 29</li>
+                    <li>Island 36M Till 28 6yrs Till 30 8yrs</li>
+                </ul>`
+            };
+
+            projectSelect.addEventListener('change', function() {
+                const selectedProject = projectSelect.value;
+
+                if (selectedProject) {
+                    detailsDiv.innerHTML = projectDetails[selectedProject];
+                } else {
+                    detailsDiv.innerHTML = '';
+                }
+            });
+        });
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h1>Emaar Trending</h1>
+        <form id="projectForm">
+            <label for="project">Choose Project:</label>
+            <select id="project" required>
+                <option value="">--Choose a project--</option>
+                <option value="Mivida">Mivida</option>
+                <option value="MSA">MSA</option>
+                <option value="BV">BV</option>
+                <option value="Soul">Soul</option>
+            </select>
+
+            <label for="details">Details:</label>
+            <div id="details"></div>
+        </form>
+    </div>
+</body>
+</html>
